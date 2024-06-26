@@ -1,0 +1,64 @@
+// COLORS
+$color-primary: #3C81F6;
+$color-primary-light: #EBF1FA;
+$color-primary-dark: #0944aa;
+
+$color-secondary-light: #F0F0F0;
+$color-secondary-dark: #F5F5F5;
+
+$color-font:#4D5865;
+$color-font-lite:#576577;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+$border-color:#D9D9D9;
+
+
+// base spacing
+$base-spacing: 20px;
+
+// Font Sizes
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 20px;
+$font-size-x-large: 24px;
+$font-size-xx-large: 32px;
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-light: 300;
+
+// Border Radius
+$border-radius-small: 2px;
+$border-radius-medium: 4px;
+$border-radius-large: 8px;
+
+// Border Width
+$border-width-thin: 1px;
+$border-width-medium: 2px;
+$border-width-thick: 4px;
+
+
+// Z-Index
+$z-index-low: 100;
+$z-index-medium: 500;
+$z-index-high: 1000;
+$z-index-top: 2000;
+
+
+// heights
+
+:root {
+    --dynamic-height: auto;
+}
+
+$dynamic-height:var(--dynamic-height);
+$pgHeader-Height:var(--pgHeaderHeight);

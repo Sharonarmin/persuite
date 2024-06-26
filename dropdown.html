@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Button with Accordion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: #111;
+            padding-top: 20px;
+        }
+        .accordion {
+            background-color: #111;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #575757;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            overflow: hidden;
+            color: black;
+            max-height: 0;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .panel p {
+            margin: 0;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <button class="accordion">Section 1</button>
+        <div class="panel">
+            <p>Content for Section 1.</p>
+        </div>
+
+        <button class="accordion">Section 2</button>
+        <div class="panel">
+            <p>Content for Section 2.</p>
+        </div>
+
+        <button class="accordion">Section 3</button>
+        <div class="panel">
+            <p>Content for Section 3.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var acc = document.getElementsByClassName("accordion");
+
+            for (var i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    var isActive = this.classList.contains("active");
+
+                    // Close all panels
+                    var allPanels = document.getElementsByClassName("panel");
+                    for (var j = 0; j < allPanels.length; j++) {
+                        allPanels[j].style.maxHeight = null;
+                        allPanels[j].previousElementSibling.classList.remove("active");
+                    }
+
+                    // If the clicked panel was not active, open it
+                    if (!isActive) {
+                        this.classList.add("active");
+                        var panel = this.nextElementSibling;
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

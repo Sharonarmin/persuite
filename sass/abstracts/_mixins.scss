@@ -1,0 +1,88 @@
+// clearfix
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// postion center with absolut
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// postion center
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// transition
+@mixin transition($property, $duration: 0.3s, $ease: ease) {
+    transition: $property $duration $ease;
+}
+
+// border
+@mixin border( $size, $property, $color){
+    border: $size $property $color
+}
+
+// ellipsis text
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// box shadow
+@mixin box-shadow($x: 0px, $y: 0px, $blur: 10px, $color: rgba(0, 0, 0, 0.15)) {
+    box-shadow: $x $y $blur $color;
+}
+
+@mixin gradient-bg($start-color, $end-color) {
+    background: linear-gradient(to right, $start-color, $end-color);
+}
+
+// button
+@mixin button($bg-color, $color: #fff) {
+    background-color: $bg-color;
+    color: $color;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    @include transition(background-color, 0.3s);
+  
+    &:hover {
+      background-color: darken($bg-color, 10%);
+    }
+}
+  
+
+// media query
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == phone-md {
+        @media only screen and (max-width: 48em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == laptop{
+        @media only screen and (max-width: 144em){ @content };     //1440px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800
+    }
+}
+
